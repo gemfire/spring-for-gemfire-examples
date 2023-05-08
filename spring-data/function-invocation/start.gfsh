@@ -1,0 +1,4 @@
+start locator
+configure pdx --auto-serializable-classes=dev\.gemfire\.function\.domain\..*
+start server
+deploy --jar=./build/libs/function-invocation-plain.jar

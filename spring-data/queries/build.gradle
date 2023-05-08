@@ -1,0 +1,26 @@
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot' version '3.1.0'
+}
+
+bootRun {
+    mainClass = "dev.gemfire.queries.QueryClient"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        credentials {
+            username "$gemfireRepoUsername"
+            password "$gemfireRepoPassword"
+        }
+        url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+    }
+}
+
+dependencies {
+    implementation "com.vmware.gemfire:spring-boot-3.0-gemfire-10.0:1.0.0"
+    implementation "com.vmware.gemfire:gemfire-core:10.0.0"
+    implementation "com.vmware.gemfire:gemfire-cq:10.0.0"
+    implementation 'org.awaitility:awaitility:4.2.0'
+}

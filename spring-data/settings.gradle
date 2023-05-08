@@ -1,0 +1,7 @@
+rootProject.name = 'spring-data-examples'
+
+include 'eviction'
+include 'expiration'
+include 'function-invocation'
+include 'queries'
+include 'transactions'
