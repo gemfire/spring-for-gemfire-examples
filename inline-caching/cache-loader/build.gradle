@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.vmware.gemfire.inlineCaching'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+
+task copyAllDependencies(type: Copy) {
+    from configurations.compileClasspath
+    include 'jooq-*.jar', 'HikariCP-*.jar', 'postgresql-*.jar'
+    into "${buildDir}/libs"
+}
+build.dependsOn(copyAllDependencies)
+
+repositories {
+    mavenCentral()
+    maven {
+        credentials {
+            username "$pivotalCommercialMavenRepoUsername"
+            password "$pivotalCommercialMavenRepoPassword"
+        }
+        url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+    }
+}
+
+dependencies {
+    implementation 'com.vmware.gemfire:gemfire-core:10.0.0'
+    implementation group: 'org.jooq', name: 'jooq', version: '3.6.2'
+    implementation 'com.zaxxer:HikariCP:4.0.3'
+    implementation 'org.postgresql:postgresql:42.6.0'
+}
+
