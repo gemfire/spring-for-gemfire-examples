@@ -1,0 +1,4 @@
+# Gfsh shell script used to connect to a secure cluster
+# Connect to a secure Locator with Authentication and SSL enabled
+
+connect --security-properties-file=${SBDG_HOME}/spring-gemfire-samples/boot/configuration/build/resources/main/geode/config/gemfire.properties

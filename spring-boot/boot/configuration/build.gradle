@@ -1,0 +1,45 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+	id "java"
+	id "org.springframework.boot" version "3.1.0"
+}
+
+description = "Spring GemFire Sample demonstrating the use of Spring Boot Auto-Configuration for VMware GemFire."
+
+dependencies {
+
+	implementation "com.vmware.gemfire:spring-boot-3.0-gemfire-10.0:1.0.0"
+
+	implementation "org.assertj:assertj-core:3.24.2"
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test:3.1.0"
+
+}
+
+bootRun {
+	mainClass = 'dev.gemfire.configuration.CustomerServiceApplication'
+}
+
+processResources {
+	eachFile { file ->
+		if (!file.name.endsWith(".jks")) {
+			file.filter ReplaceTokens, tokens: [
+				'project-dir' : rootProject.projectDir.path,
+				'project-version' : project.version,
+				'samples-dir' : rootProject.projectDir.path + '/spring-gemfire-samples'
+			]
+		}
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		credentials {
+			username "$gemfireRepoUsername"
+			password "$gemfireRepoPassword"
+		}
+		url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+	}
+}

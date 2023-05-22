@@ -1,0 +1,4 @@
+start locator --name=example-locator
+start server --name=example-server
+create region --name=/TemperatureReadings --type=PARTITION
+create index --name=TemperatureReadingTemperatureIdx --expression=temperature --region=/TemperatureReadings

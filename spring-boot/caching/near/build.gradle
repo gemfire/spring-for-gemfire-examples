@@ -1,0 +1,33 @@
+plugins {
+	id "java"
+	id "org.springframework.boot" version "3.1.0"
+}
+
+description = "Spring GemFire Sample demonstrating Spring's Cache Abstraction using VMware GemFire as the caching provider for Near Caching."
+
+dependencies {
+
+	implementation "com.vmware.gemfire:spring-boot-3.0-gemfire-10.0:1.0.0"
+
+	implementation "org.assertj:assertj-core:3.24.2"
+	implementation "org.springframework.boot:spring-boot-starter-web:3.1.0"
+
+	runtimeOnly "org.springframework.boot:spring-boot-starter-jetty:3.1.0"
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test:3.1.0"
+}
+
+bootRun {
+	mainClass = 'dev.gemfire.caching.near.BootGemFireNearCachingClientCacheApplication'
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		credentials {
+			username "$gemfireRepoUsername"
+			password "$gemfireRepoPassword"
+		}
+		url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+	}
+}

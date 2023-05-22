@@ -1,0 +1,3 @@
+start locator --name=example-locator --enable-cluster-configuration --J=-Dgemfire.security-manager=dev.gemfire.security.manager.BasicSecurityManager --security-properties-file={project_directory}/src/main/resources/gfsecurity.properties --classpath={project_directory}/build/libs/security-plain.jar
+start server --name=example-server --use-cluster-configuration --security-properties-file={project_directory}/src/main/resources/gfsecurity.properties --classpath={project_directory}/build/libs/security-plain.jar --locators=localhost[10334]
+create region --name=/Customers --type=PARTITION

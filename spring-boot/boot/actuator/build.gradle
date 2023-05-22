@@ -1,0 +1,28 @@
+plugins {
+	id "java"
+	id "org.springframework.boot" version "3.1.0"
+}
+
+description = "Spring GemFire Sample demonstrating the use of Spring Boot Actuator with VMware GemFire."
+
+dependencies {
+
+	implementation "com.vmware.gemfire:spring-boot-actuator-3.0-gemfire-10.0:1.0.0"
+
+	implementation "org.springframework.boot:spring-boot-starter-web:3.1.0"
+}
+
+bootRun {
+	mainClass = 'dev.gemfire.actuator.BootGemFireClientApplication'
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		credentials {
+			username "$gemfireRepoUsername"
+			password "$gemfireRepoPassword"
+		}
+		url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+	}
+}

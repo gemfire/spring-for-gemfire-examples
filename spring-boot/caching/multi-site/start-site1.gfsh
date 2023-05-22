@@ -1,0 +1,4 @@
+start locator --name=locator-site1 --port=10334 --http-service-port=7070 --J=-Dgemfire.remote-locators=localhost[10335] --J=-Dgemfire.jmx-manager=true --J=-Dgemfire.jmx-manager-port=1199 --J=-Dgemfire.distributed-system-id=10 --J=-Dgeode.distributed-system.remote.id=20
+start server ---name=server-site1 --server-port=40404 --J=-Dgemfire.distributed-system-id=10 --J=-Dgeode.distributed-system.remote.id=20
+create gateway-sender --id=sender --remote-distributed-system-id=20
+create region --name=Customers --type=REPLICATE --gateway-sender-id=sender
