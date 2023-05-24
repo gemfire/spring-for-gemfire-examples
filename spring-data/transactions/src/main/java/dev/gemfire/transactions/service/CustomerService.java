@@ -55,8 +55,8 @@ public class CustomerService {
 	}
 
 	@Transactional
-	public void updateCustomersSuccess() {
-		customerRepository.save(new Customer(2L, new EmailAddress("2@2.com"), "Humpty", "Hamilton"));
+	public void updateCustomersSuccess(Customer customer) {
+		customerRepository.save(customer);
 	}
 
 	@Transactional
@@ -66,8 +66,8 @@ public class CustomerService {
 	}
 
 	@Transactional
-	public void updateCustomersFailure() {
-		customerRepository.save(new Customer(2L, new EmailAddress("2@2.com"), "Numpty", "Hamilton"));
+	public void updateCustomersFailure(Customer customer) {
+		customerRepository.save(customer);
 		throw new IllegalArgumentException("This is an expected exception that should fail the transactions");
 	}
 }

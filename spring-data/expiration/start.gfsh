@@ -1,2 +1,2 @@
-start locator
-start server
+start locator --name=example-locator
+start server --name=example-server

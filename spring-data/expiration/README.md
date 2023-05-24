@@ -1,7 +1,5 @@
 # Expiration Example
 
-# Expiration Example
-
 ## Description
 In this example we will show you ways to automatically expire data from your region.
 
@@ -34,6 +32,7 @@ In order to run the following example one requires the following to be set up:
 
 
 ## Expected Outcome
+All three types of expiration, and both clients, will have output like below.
 ```
 --- {expiration type} ---
 Starting TTL wait period: 2023-05-22T19:51:21.994873Z
@@ -44,9 +43,7 @@ Ending Idle wait period: 2023-05-22T19:51:25.045327Z
 
 ## Shut down and Cleanup
 Run the following commands to shut down and cleanup:
-1. In the Client Terminal window
-   1. `Ctrl+C` to kill the running client app
-2. In the Server Terminal window (assuming `gfsh` is still active):
+   In the Server Terminal window (assuming `gfsh` is still active):
    1. Run `shutdown --include-locators`
    2. Exit from the `gfsh` by running `quit`
-   3. Delete the created directories
+   3. Delete the created directories `example-locator` and `example-server`

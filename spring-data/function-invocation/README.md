@@ -14,9 +14,12 @@ In order to run the following example one requires the following to be set up:
 2. Start GemFire server-side processes
     1. Open new Terminal
     2. `cd` into the `function-invocation` project directory, `spring-examples/spring-data/function-invocation`
-    3. Start `gfsh` located in the `{VMware_GemFire_installation_location}/bin` directory
-    4. Launch the Locator and Server by running `start.gfsh` file located in the `function-invocation` project directory in `gfsh`. <br> e.g `run --file={pathToStartGfshFile}/start.gfsh`
-    5. Confirm that the locator and server are running by running `list members` in `gfsh`, which should contain two entries.
+    3. Run `gradle build` to build the jar that will contain the functions.
+    4. Start `gfsh` located in the `{VMware_GemFire_installation_location}/bin` directory
+    5. Launch the Locator and Server by running `start.gfsh` file located in the `function-invocation` project directory in `gfsh`. <br> e.g `run --file={pathToStartGfshFile}/start.gfsh`
+    6. Confirm that the locator and server are running by running `list members` in `gfsh`, which should contain two entries.
+    7. Deploy the functions and domain objects to the server by running `deploy --jar=./build/libs/function-invocation-plain.jar` in `gfsh`
+    8. Confirm that the functions were registered byr running `list functions` in `gfsh`, which should contain three entries.
 3. Start Client
     1. Open a new Terminal
     2. `cd` into the `function-invocation` project directory
@@ -36,9 +39,7 @@ For order:
 
 ## Shut down and Cleanup
 Run the following commands to shut down and cleanup:
-1. In the Client Terminal window
-    1. `Ctrl+C` to kill the running client app
-2. In the Server Terminal window (assuming `gfsh` is still active):
-    1. Run `shutdown --include-locators`
-    2. Exit from the `gfsh` by running `quit`
-    3. Delete the created directories
+   In the Server Terminal window (assuming `gfsh` is still active):
+   1. Run `shutdown --include-locators`
+   2. Exit from the `gfsh` by running `quit`
+   3. Delete the created directories `example-locator` and `example-server`

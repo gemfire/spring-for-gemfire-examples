@@ -3,7 +3,7 @@
 ## Description
 In this example we will demonstrate different kinds of queries. The kinds of queries we will demonstrate are listed below.
 1. OQL Queries - OQL is similar to SQl and can be used to query regions like SQl queries tables in a relational database.
-2. Continuous Queries - Continuous queries are special OQl queries that run continuously and are updated when th returned result set changes (like when data is added/removed on the region)
+2. [Continuous Queries](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-continuous_querying-chapter_overview.html) - Continuous queries are special OQL queries that you register with the server. 
 
 ## Prerequisites
 In order to run the following example one requires the following to be set up:
@@ -44,9 +44,7 @@ Find customers with firstName=Jude: [Customer[id=1, emailAddress=EmailAddress[va
 
 ## Shut down and Cleanup
 Run the following commands to shut down and cleanup:
-1. In the Client Terminal window
-    1. `Ctrl+C` to kill the running client app
-2. In the Server Terminal window (assuming `gfsh` is still active):
-    1. Run `shutdown --include-locators`
-    2. Exit from the `gfsh` by running `quit`
-    3. Delete the created directories
+   In the Server Terminal window (assuming `gfsh` is still active):
+   1. Run `shutdown --include-locators`
+   2. Exit from the `gfsh` by running `quit`
+   3. Delete the created directories `example-locator` and `example-server`

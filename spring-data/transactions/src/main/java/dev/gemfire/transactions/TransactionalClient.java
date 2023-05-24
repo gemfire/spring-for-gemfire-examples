@@ -31,22 +31,24 @@ public class TransactionalClient {
             customerService.createFiveCustomers();
             assert customerService.numberEntriesStoredOnServer() ==  5;
             logger.info("Number of Entries stored after = " + customerService.numberEntriesStoredOnServer());
-            logger.info("Customer for ID before (transaction commit success) = " + customerService.findById(2L).get());
-            customerService.updateCustomersSuccess();
+            logger.info("Original Customer for ID before (transaction commit success) = " + customerService.findById(2L).get());
+            customerService.updateCustomersSuccess(new Customer(2L, new EmailAddress("2@2.com"), "Humpty", "Hamilton"));
             assert customerService.numberEntriesStoredOnServer() ==  5;
             Customer customer = customerService.findById(2L).get();
             assert customer.firstName().equals("Humpty");
-            logger.info("Customer for ID after (transaction commit success) = " + customer);
+            logger.info("Updated Customer for ID after (transaction commit success) = " + customer);
 
             try {
-                customerService.updateCustomersFailure();
+                Customer updatedCustomer = new Customer(2L, new EmailAddress("2@2.com"), "Numpty", "Hamilton");
+                logger.info("Attempting to update the Customer again: " + updatedCustomer);
+                customerService.updateCustomersFailure(updatedCustomer);
             } catch (IllegalArgumentException ex) {
                 ex.printStackTrace();
             }
 
             customer = customerService.findById(2L).get();
             assert customer.firstName().equals("Humpty");
-            logger.info("Customer for ID after (transaction commit failure) = " + customerService.findById(2L).get());
+            logger.info("Unchanged Customer for ID after (transaction commit failure) = " + customerService.findById(2L).get());
 
             Customer numpty = new Customer(2L, new EmailAddress("2@2.com"), "Numpty", "Hamilton");
             Customer frumpy = new Customer(2L, new EmailAddress("2@2.com"), "Frumpy", "Hamilton");
@@ -54,7 +56,7 @@ public class TransactionalClient {
             customerService.updateCustomersWithDelay(10, frumpy);
             customer = customerService.findById(2L).get();
             assert customer.equals(frumpy);
-            logger.info("Customer for ID after 2 updates with delay = " + customer);
+            logger.info("Updated Customer for ID after 2 updates with delay = " + customer);
         };
     }
 }

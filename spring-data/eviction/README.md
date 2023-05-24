@@ -32,9 +32,7 @@ Entries: 10
 
 ## Shut down and Cleanup
 Run the following commands to shut down and cleanup:
-1. In the Client Terminal window
-   1. `Ctrl+C` to kill the running client app
-2. In the Server Terminal window (assuming `gfsh` is still active):
+   In the Server Terminal window (assuming `gfsh` is still active):
    1. Run `shutdown --include-locators`
    2. Exit from the `gfsh` by running `quit`
-   3. Delete the created directories
+   3. Delete the created directories `example-locator` and `example-server`
