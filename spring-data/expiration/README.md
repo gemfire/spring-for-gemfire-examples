@@ -32,9 +32,25 @@ In order to run the following example one requires the following to be set up:
 
 
 ## Expected Outcome
-All three types of expiration, and both clients, will have output like below.
+All three types of expiration, and both clients, do the same operations. 
+
+The main client's output:
 ```
---- {expiration type} ---
+--- Cache Defined Expiration ---
+Starting TTL wait period: 2023-05-22T19:51:21.994873Z
+Ending TTL wait period: 2023-05-22T19:51:23.030213Z
+Starting Idle wait period: 2023-05-22T19:51:23.037180Z
+Ending Idle wait period: 2023-05-22T19:51:25.045327Z
+
+--- Custom Expiration ---
+Starting TTL wait period: 2023-05-22T19:51:21.994873Z
+Ending TTL wait period: 2023-05-22T19:51:23.030213Z
+Starting Idle wait period: 2023-05-22T19:51:23.037180Z
+Ending Idle wait period: 2023-05-22T19:51:25.045327Z
+```
+The entity defined expiration client:
+```
+--- Entity Defined Expiration ---
 Starting TTL wait period: 2023-05-22T19:51:21.994873Z
 Ending TTL wait period: 2023-05-22T19:51:23.030213Z
 Starting Idle wait period: 2023-05-22T19:51:23.037180Z
