@@ -1,3 +1,5 @@
+// Copyright (c) VMware, Inc. 2023. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
 package dev.gemfire.security.manager;
 
 import org.apache.geode.security.AuthenticationFailedException;
@@ -6,7 +8,10 @@ import org.apache.geode.security.SecurityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 public class BasicSecurityManager implements SecurityManager {
 

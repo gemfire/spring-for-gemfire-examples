@@ -1,26 +1,12 @@
-/*
- * Copyright 2017-present the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
+// Copyright (c) VMware, Inc. 2023. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
 package dev.gemfire.caching.lookaside.controller;
 
+import dev.gemfire.caching.lookaside.service.CounterService;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import dev.gemfire.caching.lookaside.service.CounterService;
 
 /**
  * A Spring Web MVC {@link RestController} used to expose the {@link CounterService} operations via HTTP
@@ -30,7 +16,6 @@ import dev.gemfire.caching.lookaside.service.CounterService;
  * @see org.springframework.web.bind.annotation.RestController
  * @since 1.0.0
  */
-// tag::class[]
 @RestController
 public class CounterController {
 
@@ -71,4 +56,3 @@ public class CounterController {
 		return String.format(HEADER_ONE, "0");
 	}
 }
-// end::class[]

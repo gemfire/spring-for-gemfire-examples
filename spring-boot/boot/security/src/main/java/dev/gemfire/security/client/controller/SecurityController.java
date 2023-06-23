@@ -1,26 +1,12 @@
-/*
- * Copyright 2017-present the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
+// Copyright (c) VMware, Inc. 2023. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
 package dev.gemfire.security.client.controller;
 
+import dev.gemfire.security.client.BootGemFireSecurityClientApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import dev.gemfire.security.client.BootGemFireSecurityClientApplication;
 
 /**
  * A Spring {@link RestController} used by {@link BootGemFireSecurityClientApplication}.
@@ -28,7 +14,6 @@ import dev.gemfire.security.client.BootGemFireSecurityClientApplication;
  * @see org.springframework.web.bind.annotation.RestController
  * @since 1.4.0
  */
-// tag::class[]
 @RestController
 public class SecurityController {
 
@@ -41,4 +26,3 @@ public class SecurityController {
 			this.environment.getProperty("spring.data.gemfire.security.ssl.keystore"));
 	}
 }
-// end::class[]

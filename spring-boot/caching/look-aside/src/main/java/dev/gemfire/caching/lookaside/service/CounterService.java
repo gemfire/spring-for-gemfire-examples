@@ -1,28 +1,15 @@
-/*
- * Copyright 2017-present the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing
- * permissions and limitations under the License.
- */
+// Copyright (c) VMware, Inc. 2023. All rights reserved.
+// SPDX-License-Identifier: Apache-2.0
 package dev.gemfire.caching.lookaside.service;
-
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * A Spring Cacheable {@link Service} class used to maintain a collection of named counters and provide counter
@@ -34,7 +21,6 @@ import org.springframework.stereotype.Service;
  * @see org.springframework.stereotype.Service
  * @since 1.0.0
  */
-// tag::class[]
 @Service
 public class CounterService {
 
@@ -67,4 +53,3 @@ public class CounterService {
 		this.namedCounterMap.remove(counterName);
 	}
 }
-// end::class[]
