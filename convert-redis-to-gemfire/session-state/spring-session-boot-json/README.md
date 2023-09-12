@@ -6,15 +6,15 @@ SPDX-License-Identifier: Apache-2.0
 # Spring Session Sample Boot JSON
 
 The projects in this directory illustrate a standard Spring Boot application using Spring Session to save session data
-with either Redis or Tanzu GemFire/ Apache Geode. In this example, the Redis version serialized the session data to JSON format before
-storing it in the cache. In this guide, we will highlight the changes necessary for switching from Redis to Tanzu GemFire / Apache Geode
+with either Redis or VMware GemFire. In this example, the Redis version serialized the session data to JSON format before
+storing it in the cache. In this guide, we will highlight the changes necessary for switching from Redis to VMware GemFire
 for session state caching utilizing the
-[Spring Boot for Apache Geode](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#introduction) Spring dependency.
+[Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/index.html) Spring dependency.
 
 ## How to Convert from Redis to Tanzu GemFire
 
 ### Update `build.gradle`
-The Spring Boot Redis dependencies need to be updated to use Spring Boot for Apache Geode.
+The Spring Boot Redis dependencies need to be updated to use Spring Boot for VMware GemFire.
 
 Remove these dependencies:
 
@@ -27,20 +27,10 @@ implementation 'org.springframework.session:spring-session-data-redis'
 Replace them with these dependencies:
 
 ```groovy
-ext {
-    set('springGeodeVersion', "1.4.0")
-}
-
 dependencies {
-    implementation 'org.springframework.geode:spring-geode-starter'
-    implementation 'org.springframework.geode:spring-geode-starter-session'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.geode:spring-geode-bom:${springGeodeVersion}"
+    implementation 'com.vmware.gemfire:spring-boot-3.1-vmware-gemfire-10.0:1.0.0'
+    implementation 'com.vmware.gemfire:spring-boot-session-3.1-vmware-gemfire-10.0:1.0.0'
     }
-}
 ```
 
 ### Add `@EnableClusterAware`

@@ -4,7 +4,7 @@ plugins {
 
 group = 'com.vmware.gemfire.inlineCaching'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '17'
 
 
 task copyAllDependencies(type: Copy) {
@@ -18,8 +18,8 @@ repositories {
     mavenCentral()
     maven {
         credentials {
-            username "$pivotalCommercialMavenRepoUsername"
-            password "$pivotalCommercialMavenRepoPassword"
+            username "$gemfireRepoUsername"
+            password "$gemfireRepoPassword"
         }
         url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
     }

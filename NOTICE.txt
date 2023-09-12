@@ -1,4 +1,4 @@
-spring-for-apache-geode-examples 
+spring-for-gemfire-examples
 Copyright 2020 VMware, Inc. 
 
 This product is licensed to you under the Apache 2.0 license (the "License").  You may not use this product except in compliance with the Apache 2.0 License.  

@@ -4,14 +4,14 @@
  */
 
 plugins {
-    id 'org.springframework.boot' version '2.7.5'
-    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'org.springframework.boot' version '3.1.3'
+    id 'io.spring.dependency-management' version '1.1.3'
     id 'java'
 }
 
 group = 'com.vmware.gemfire.helloworld'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '17'
 
 bootBuildImage{
     imageName = "docker.io/[YOUR DOCKER USERNAME]/hello-world:${project.version}"
@@ -31,7 +31,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:1.0.0"
+    implementation "com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:1.0.0"
+    implementation 'com.vmware.gemfire:gemfire-core:10.0.1'
 }
 
 dependencyManagement {

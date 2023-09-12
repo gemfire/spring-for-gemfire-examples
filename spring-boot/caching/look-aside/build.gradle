@@ -1,13 +1,14 @@
 plugins {
 	id "java"
-	id "org.springframework.boot" version "3.0.8"
+	id 'org.springframework.boot' version '3.1.3'
 }
 
 description = "Spring GemFire Sample demonstrating Spring's Cache Abstraction using VMware GemFire as the caching provider for Look-Aside Caching."
 
 dependencies {
 
-	implementation "com.vmware.gemfire:spring-boot-3.0-gemfire-10.0:1.0.0"
+	implementation "com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:1.0.0"
+	implementation 'com.vmware.gemfire:gemfire-core:10.0.1'
 
 	implementation "org.springframework.boot:spring-boot-starter-web:3.0.8"
 	implementation "org.assertj:assertj-core:3.24.2"

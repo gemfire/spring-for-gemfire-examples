@@ -3,9 +3,9 @@ Copyright 2019 - 2021 VMware, Inc.
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Contributing to spring-for-apache-geode-examples
+# Contributing to spring-for-gemfire-examples
 
-The spring-for-apache-geode-examples project team welcomes contributions from the community. Before you start working with spring-for-apache-geode-examples, please
+The spring-for-gemfire-examples project team welcomes contributions from the community. Before you start working with spring-for-gemfire-examples, please
 read our [Developer Certificate of Origin](https://cla.vmware.com/dco). All contributions to this repository must be
 signed as described on that page. Your signature certifies that you wrote the patch or have the right to pass it on
 as an open-source patch.
@@ -23,7 +23,7 @@ This is a rough outline of what a contributor's workflow looks like:
 Example:
 
 ``` shell
-git remote add upstream https://github.com/gemfire/spring-for-apache-geode-examples.git
+git remote add upstream https://github.com/gemfire/spring-for-gemfire-examples.git
 git checkout -b my-new-example master
 git commit -a
 git push origin my-new-example

@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 
 package bootjson.session.redis.web;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;

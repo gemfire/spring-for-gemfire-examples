@@ -4,14 +4,14 @@
  */
 
 plugins {
-    id 'org.springframework.boot' version '2.4.1'
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'org.springframework.boot' version '3.1.3'
+    id 'io.spring.dependency-management' version '1.1.3'
     id 'java'
 }
 
 group = 'boot.session.gemfire'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '17'
 
 configurations {
     developmentOnly
@@ -22,17 +22,20 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven {
+        credentials {
+            username "$gemfireRepoUsername"
+            password "$gemfireRepoPassword"
+        }
+        url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+    }
 }
-
-ext {
-    set('springGeodeVersion', "1.4.0")
-}
-
 
 dependencies {
 
-    implementation 'org.springframework.geode:spring-geode-starter'
-    implementation 'org.springframework.geode:spring-geode-starter-session'
+    implementation 'com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:1.0.0'
+    implementation 'com.vmware.gemfire:spring-boot-session-3.1-gemfire-10.0:1.0.0'
+    implementation 'com.vmware.gemfire:gemfire-core:10.0.1'
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -53,8 +56,5 @@ dependencyManagement {
           entry('log4j-core')
           entry('log4j-to-slf4j')
         }
-    }
-    imports {
-        mavenBom "org.springframework.geode:spring-geode-bom:${springGeodeVersion}"
     }
 }

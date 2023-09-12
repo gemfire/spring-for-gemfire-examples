@@ -6,15 +6,15 @@ SPDX-License-Identifier: Apache-2.0
 # Publish And Subscribe
 
 The projects in this directory illustrate a Spring Boot application that creates a publish and subscribe channel with
-either Redis or Tanzu GemFire / Apache Geode. In this guide, we will highlight the changes necessary for switching from Redis to Tanzu GemFire / Apache Geode for the publish/subscribe implementation.
+either Redis or VMware GemFire. In this guide, we will highlight the changes necessary for switching from Redis to VMware GemFire for the publish/subscribe implementation.
 
-In the Tanzu GemFire / Apache Geode example, a Region will represent the equivalent of a PatternTopic as defined in the Redis example. 
+In the VMware GemFire example, a Region will represent the equivalent of a PatternTopic as defined in the Redis example. 
 
 
 ## How to Convert from Redis to Tanzu GemFire
 
 ### Update `build.gradle`
-The Spring Boot Redis dependencies need to be updated to use Spring Boot for Apache Geode.
+The Spring Boot Redis dependencies need to be updated to use Spring Boot for VMware GemFire.
 
 Remove these Redis dependencies:
 
@@ -25,18 +25,8 @@ implementation "org.springframework.boot:spring-boot-starter-data-redis"
 Replace them with this Spring dependency:
 
 ```groovy
-ext {
-    set('springGeodeVersion', "1.4.0")
-}
-
 dependencies {
-    implementation 'org.springframework.geode:spring-geode-starter'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.geode:spring-geode-bom:${springGeodeVersion}"
-    }
+    implementation 'com.vmware.gemfire:spring-boot-3.1-vmware-gemfire-10.0:1.0.0'
 }
 ```
 

@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in spring-for-apache-geode-examples project and our
+We as members, contributors, and leaders pledge to make participation in spring-for-gemfire-examples project and our
 community a harassment-free experience for everyone, regardless of age, body
 size, visible or invisible disability, ethnicity, sex characteristics, gender
 identity and expression, level of experience, education, socio-economic status,
